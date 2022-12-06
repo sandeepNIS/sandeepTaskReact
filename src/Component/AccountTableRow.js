@@ -3,12 +3,12 @@ import { Button } from "react-bootstrap";
 import axios from "axios";
 
 const AccountTableRow = (props) => {
-const { _id, name, email} = props.obj;
+const { id, username, email} = props.obj;
 
 const deleteAccount = () => {
 	axios
 	.delete(
-"http://localhost:5000/account/delete/" + _id)
+"http://localhost:3080/account/delete/" + id)
 	.then((res) => {
 		if (res.status === 200) {
 		alert("Student successfully deleted");
@@ -20,7 +20,7 @@ const deleteAccount = () => {
 
 return (
 	<tr>
-	<td>{name}</td>
+	<td>{username}</td>
 	<td>{email}</td>
 	<td>
 		<Button onClick={deleteAccount}

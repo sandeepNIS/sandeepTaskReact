@@ -22,10 +22,10 @@ return (
 		<Form>
 		<FormGroup>
         <FormLabel>Name</FormLabel>
-			<Field name="name" type="text"
+			<Field name="username" type="text"
 				className="form-control" />
 			<ErrorMessage
-			name="name"
+			name="username"
 			className="d-block invalid-feedback"
 			component="span"
 			/>

@@ -9,15 +9,14 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
 // route
 
-// const routes = require('./routes/Route')
+const routes = require('./Route.js')
 // app.use('/', routes)
-// app.use(cors())
+app.use(cors())
 //start server
 // app.listen(4021, ()=>{
 //     console.log("listeniing at port:4021")
 // }) 
-const routes = require('./routes/Route')
-app.use(cors());
+// const routes = require('./Route')
 app.use('/', routes)
 const port = process.env.PORT || 3080;
 const server = app.listen(port, () => {
@@ -25,6 +24,14 @@ const server = app.listen(port, () => {
 })
 console.log(server);
 
+
+app.use(function(req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  next();
+});
 // app.get("/", (req, res) => {
 //     var temo=console.log(__dirname);
 //   });
