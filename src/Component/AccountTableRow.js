@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import axios from "axios";
+import Example from "./Modal";
 
 const AccountTableRow = (props) => {
 const { id, username, email} = props.obj;
@@ -28,7 +29,15 @@ return (
 		Delete
 		</Button>
 	</td>
+	<td>
+	<Example username={username}
+	id={id}
+	email={email}/>
+	</td>
+	
 	</tr>
+	
+	
 );
 };
 

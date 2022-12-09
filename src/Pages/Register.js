@@ -1,49 +1,53 @@
-// import React from 'react'  
-// class Register extends React.Component {  
-//   render() {  
-//     return <h1>Register</h1>  
-//   }  
-// }  
-// export default Register 
-
-// CreateStudent Component for add new account
+// CreateStudent Component for add new student
 
 // Import Modules
-import React, { useState } from "react";
+import React, { useState} from "react";
 import axios from 'axios';
 import AccountForm from "../Component/AccountForm";
 
-// CreateAccount Component
+// CreateStudent Component
 const Register = () => {
-const [formValues] =
-	useState({ name: '', email: '', password: '' })
+const [formValues, setFormValues] =
+	useState({ username:'', email: '', password: '' })
 // onSubmit handler
-const onSubmit = accountObject=> {
+const onSubmit = studentObject => {
 	axios.post(
-`http://localhost:3080/account/addaccount`,
-	accountObject,{
-        headers: {
-            "Content-Type": "multipart/form-data",
-          },
-    })
+'http://localhost:3080/account/addaccount',
+	studentObject)
 	.then(res => {
-		if (res.status === 200)
-		alert('account successfully created')
+		if (res.status === 200){
+			alert('Account successfully created')
+			const { username, email, password } = res.data;
+        setFormValues({ username, email, password });
+		}
 		else
 		Promise.reject()
 	})
 	.catch(err => alert('Something went wrong'))
 }
 	
-// Return Account form
+// useEffect(() => {
+//     axios
+//       .post(
+        
+//       )
+//       .then((res) => {
+//         const { username, email, password } = res.data;
+//         setFormValues({ username, email, password });
+//       })
+//       .catch((err) => console.log(err));
+//   }, []);
+
+
+// Return student form
 return(
 	<AccountForm initialValues={formValues}
 	onSubmit={onSubmit}
 	enableReinitialize>
-	Create Account
+	Create Student
 	</AccountForm>
 )
 }
 
-// Export CreateAccount Component
+// Export CreateStudent Component
 export default Register
