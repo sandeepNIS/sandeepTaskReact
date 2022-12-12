@@ -28,8 +28,8 @@ return (
 		size="sm" variant="danger">
 		Delete
 		</Button>
-	</td>
-	<td>
+		<hr></hr>
+		{/* <br></br><br></br> */}
 	<Example username={username}
 	id={id}
 	email={email}/>

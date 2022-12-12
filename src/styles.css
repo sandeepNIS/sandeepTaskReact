@@ -32,8 +32,7 @@ body{
     gap:1rem
 }
 .site-title{
-    font-size: 2rem;
-    
+    font-size: 2rem;   
 }
 .nav li.active{
     background-color: #555;

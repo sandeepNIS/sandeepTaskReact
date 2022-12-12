@@ -28,7 +28,7 @@ const DataTable = () => {
 return (
 
 
-	<div className="table-wrapper table-responsive overflow-y: hidden  overflow-x:auto;" >
+	<div  className="table-wrapper table-responsive overflow-y: hidden  overflow-x:auto;" >
 		{/* //table-responsive size="sm" */}
 	<Table className="table" striped bordered hover table responsive size="sm" w-auto >
 		<thead>
@@ -37,7 +37,7 @@ return (
 			<th> Name </th>
 			<th> Email </th>
 			<th> Action </th>
-			<th> Info </th>
+			{/* <th> Info </th> */}
 			
 		</tr>
 		</thead>

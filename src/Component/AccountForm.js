@@ -8,10 +8,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 const AccountForm = (props) => {
 const validationSchema = Yup.object().shape({
 	username: Yup.string().required("Required"),
-	email: Yup.string()
-	.email("You have enter an invalid email address")
-	.required("Required"),
-	password: Yup.string().required("Required"),
+	email: Yup.string().required("Required"),
+	password: Yup.string().required("Required")
 });
 console.log(props);
 return (
@@ -23,7 +21,7 @@ return (
 		<FormGroup>
         <FormLabel>Name</FormLabel>
 			<Field name="username" type="text"
-				className="form-control autofocus" />
+				className="form-control "autoFocus  />
 			<ErrorMessage
 			name="username"
 			className="d-block invalid-feedback"

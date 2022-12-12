@@ -5,18 +5,25 @@ import {  Form,Formik, Field, } from "formik";
 import { FormGroup, FormLabel } from "react-bootstrap";
 
 export default function Example(props) {
-    const username=props.username;
-    const id=props.id;
-    const email=props.email;
+  const [input, setInput] = useState({
+     username:props.username,id:props.id, email:props.email
+  })
+    // const username=props.username;
+    // const id=props.id;
+    // const email=props.email;
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  // const handleClick=(e)=>{
+  //   setShow(e.target.value);
+  // }
+  //CONTROLLED COMPONENT 
   const handleClick=(e)=>{
-    setShow(e.target.value);
-  }
-
+    setInput(e.target.value);
+    e.preventDefault();
+    }
   return (
     <>
       <Button variant="primary" onClick={handleShow} size="sm">
@@ -25,7 +32,7 @@ export default function Example(props) {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Hi! {username} your info</Modal.Title>
+          <Modal.Title>Hi ! {input.username} your info...</Modal.Title>
         </Modal.Header>
         <Modal.Body>
         <div className="form-wrapper">
@@ -34,17 +41,18 @@ export default function Example(props) {
 		<FormGroup>
         <FormLabel>id</FormLabel>
 			<Field name="id" type="number"
-				className="form-control" value={id} onChange={handleClick}/>
+				className="form-control" value={input.id} onChange={handleClick}/>
 		</FormGroup>
 		<FormGroup>
         <FormLabel>Name</FormLabel>
+  {/* /CONTROLLED COMPONENT IT HAS CURRENT VALUE AS PROPS AND A CALLBACK FUNCTION handleClick USING onChange EVENT HANDLING */}
 			<Field name="username" type="text"
-				className="form-control" value={username} onChange={handleClick}  />
+				className="form-control" value={input.username} onChange={handleClick}  />
 		</FormGroup>
 		<FormGroup>
         <FormLabel>email</FormLabel>
 			<Field name="email" type="email"
-				className="form-control" value={email} onChange={handleClick} />
+				className="form-control" value={input.email} onChange={handleClick} />
 		</FormGroup>
 		</Form>
         </Formik>

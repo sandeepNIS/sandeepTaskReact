@@ -19,6 +19,7 @@ const onSubmit = studentObject => {
 			alert('Account successfully created')
 			const { username, email, password } = res.data;
         setFormValues({ username, email, password });
+		window.location.reload();
 		}
 		else
 		Promise.reject()
@@ -44,7 +45,7 @@ return(
 	<AccountForm initialValues={formValues}
 	onSubmit={onSubmit}
 	enableReinitialize>
-	Create Student
+	Create Account
 	</AccountForm>
 )
 }

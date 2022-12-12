@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom/client';
 // import { BrowserRouter as Router} from 'react-router-dom'
 import './index.css';
 import './styles.css'
-import './RespTable.css'
+import './RespTable2.css'
+// import './RespTable.css'
 import App from './App';
 // import StaticExample from './Component/Modal';
 import reportWebVitals from './reportWebVitals';
