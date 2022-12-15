@@ -55,7 +55,7 @@ return (
 	<td>{email}</td>
 	{/* <td>{ino.email}</td> */}
 	<td>
-		<Button onClick={deleteAccount}
+		<Button className="m-1 ms-0 mt-0 "  onClick={deleteAccount}
 		size="sm" variant="danger">
 		Delete
 		</Button>

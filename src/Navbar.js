@@ -6,7 +6,7 @@ import Home from "./Pages/Home"
     return <nav className="nav">
         
         <a href="/" onClick={Home} className="site-title">MyApp</a>
-        <ul>
+        <ul >
             <li className="active">
             <a href="/register" onClick={Register}>Register</a> 
                 </li>

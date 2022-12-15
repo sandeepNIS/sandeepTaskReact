@@ -68,6 +68,7 @@ export default function Example(props) {
   const formOnChageHandler = (e) => {
     e.preventDefault();
     props.getData(userData);
+    handleClose();
   };
   const fromOnSubmitHandler = (e) => {
     e.preventDefault();
@@ -91,8 +92,8 @@ export default function Example(props) {
     // };
   return (
     <>
-      <Button variant="primary" onClick={handleShow} size="sm">
-       Uinfo 
+      <Button  className="m-1 ms-0 mt-0 "  variant="primary" onClick={handleShow} size="sm">
+       U_info 
       </Button>
 
       <Modal show={show} onHide={handleClose}>
@@ -102,7 +103,7 @@ export default function Example(props) {
         <Modal.Body>  
         <div className="form-wrapper">
         <Formik >
-        <Form className='myform'   onChange={formOnChageHandler} onSubmit={fromOnSubmitHandler}>
+        <Form className='myform'   onSubmit={fromOnSubmitHandler} >
 		<FormGroup>
     {/* onChange={props.handleClicke} */}
         <FormLabel>id</FormLabel>
@@ -120,17 +121,23 @@ export default function Example(props) {
 			<Field name="email" type="email"
 				className="form-control" value={email}  onChange={emailChangeHandler}/>
 		</FormGroup>
+    <br></br>
+    <Button  type="submit" variant="secondary" onClick={formOnChageHandler} >
+            submit
+          </Button>
 		</Form>
         </Formik>
         </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          {/* <Button variant="secondary" onClick={handleClose}>
             Close
-          </Button>
+          </Button> */}
+          
         </Modal.Footer>
       </Modal>
       </>
   );
 } 
 
+// onChange={formOnChageHandler} onSubmit={fromOnSubmitHandler
